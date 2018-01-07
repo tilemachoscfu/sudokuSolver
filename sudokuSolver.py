@@ -10,7 +10,7 @@ def print_grid(arr):
          
 # Function to Find the entry in the Grid that is still  not used
 # Searches the grid to find an entry that is still unassigned.
-def find_empty_location(arr,j):
+def unallocated(arr,j):
     for row in range(9):
         for col in range(9):
             if(arr[row][col]==0):
@@ -47,7 +47,7 @@ def used_in_box(arr,row,col,num):
 # Checks whether it will be legal to assign num to the given row,col
 #  Returns a boolean which indicates whether it will be legal to assign
 #  num to the given row,col location.
-def check_location_is_safe(arr,row,col,num):
+def check_if_safe(arr,row,col,num):
      
     # Check if 'num' is not already placed in current row,
     # current column and current 3x3 box
@@ -58,11 +58,11 @@ def check_location_is_safe(arr,row,col,num):
 # for Sudoku solution (non-duplication across rows, columns, and boxes)
 def solve_sudoku(arr):
      
-    # 'j' is a list variable that keeps the record of row and col in find_empty_location Function    
+    # 'j' is a list variable that keeps the record of row and col in unallocated Function    
     j=[0,0]
      
     # If there is no unassigned location, we are done   
-    if(not find_empty_location(arr,j)):
+    if(not unallocated(arr,j)):
         return True
      
     # Assigning list values to row and col that we got from the above Function 
@@ -72,7 +72,7 @@ def solve_sudoku(arr):
     # digits 1 to 9
     for num in range(1,10):
          
-        if(check_location_is_safe(arr,row,col,num)):
+        if(check_if_safe(arr,row,col,num)):
              
             # make tentative assignment
             arr[row][col]=num
