@@ -1,2 +1,2 @@
 # sudokuSolver
-A Backtracking program  in Pyhton to solve Sudoku problem
+A Backtracking program  in Python to solve Sudoku problem
